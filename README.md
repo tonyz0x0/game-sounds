@@ -1,8 +1,8 @@
 # @citedy/game-sounds
 
-Game sound effects for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — 225 iconic sounds from 28 classic games!
+Game sound effects for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — 552 iconic sounds from 63 classic games!
 
-**"Work work!"** when you submit a prompt. **"Job's done!"** when the task completes. **"Construction complete"** from your C&C childhood.
+**"Work work!"** when you submit a prompt. **"Job's done!"** when the task completes. **"I'm Batman"** on session start. Hedwig's Theme when task completes. Shame bell on error.
 
 ## Install
 
@@ -38,38 +38,73 @@ claude --plugin-dir $(npm root -g)/@citedy/game-sounds
 
 </details>
 
-## Sound Packs (28 packs, 225 sounds)
+## Sound Packs (63 packs, 552 sounds)
 
 | Pack | Sounds | Highlights |
 |------|--------|------------|
 | **warcraft** (default) | 22 | "Work work!", "Job's done!", "Zug zug", "Stop poking me!" |
 | **starcraft** | 21 | "Affirmative", "Battlecruiser operational", "Negative" |
-| **command-conquer** | 15 | "Construction complete", "Unit ready", "Mission accomplished" |
+| **command-conquer** | 23 | "Construction complete", "Hell March", "Mission accomplished" |
+| **tmnt** | 15 | "Cowabunga!", turtle power theme, area clear |
+| **donkey-kong** | 14 | DKC opening theme, DK Rap, stage clear |
+| **mega-man** | 13 | Stage select, Dr. Wily theme, stage clear |
+| **castlevania** | 13 | Vampire Killer, castle gate intro, stage clear |
+| **bomberman** | 13 | Level start, explosive beginnings, area intro |
+| **top-gun** | 12 | Danger Zone, Top Gun anthem, title screen |
+| **popeye** | 12 | Stage themes, spinach power, stage clear |
+| **ducktales** | 12 | Moon theme, DuckTales theme, stage select |
 | **diablo** | 12 | "Stay awhile and listen", "Fresh meat!", legendary drop |
-| **unreal-tournament** | 11 | "Headshot!", "M-M-M-Monster Kill!", "Godlike!", "Holy Shit!" |
 | **zelda** | 11 | Secret found jingle, "Hey listen!", chest open, item get |
+| **unreal-tournament** | 11 | "Headshot!", "M-M-M-Monster Kill!", "Godlike!" |
+| **dracula** | 11 | Title screen, castle themes, ending |
 | **mario** | 10 | "Let's-a go!", "Yahoo!", "Mamma mia", game over |
+| **kirby** | 10 | Green Greens, Dream Land, victory dance |
+| **dnd-dragonstrike** | 10 | DragonStrike theme, mission themes, staff roll |
+| **chip-n-dale** | 10 | Rescue Rangers theme, zone clear, boss battle |
+| **tetris** | 9 | Theme A, title screen, 4-line clear |
+| **prince-of-persia** | 9 | Introducing the Prince, Sands of Time, farewell |
+| **indiana-jones** | 9 | Raiders March, Holy Grail, stage clear |
+| **asterix** | 9 | Title screen, invincibility, bonus round |
+| **aladdin** | 9 | A Whole New World, Genie entrance, Jafar evil |
+| **talespin** | 8 | Sea Duck theme, title theme, pirate's cave |
+| **star-wars** | 8 | Imperial March, Star Wars theme, Throne Room |
+| **simpsons** | 8 | Boss themes, bonus stage, Springfield |
+| **robocop** | 8 | RoboCop theme, level intro, opening |
+| **rambo** | 8 | Title screen, mission theme, boss battle |
 | **mortal-kombat** | 8 | "Finish Him!", "Get Over Here!", "Fatality", "Toasty!" |
-| **batman** | 7 | Na na na Batman!, "I'm Batman", Joker laugh, dark knight theme |
-| **counter-strike** | 7 | "Terrorists Win", "Bomb planted", "Go go go", "Enemy spotted" |
-| **doom** | 7 | Shotgun, chainsaw, E1M1 riff, Doomguy death scream |
-| **gta** | 7 | "Wasted", "Mission Passed", "Busted", police radio |
-| **looney-tunes** | 7 | "That's all folks!", "What's up doc?", Road Runner meep meep |
-| **quake** | 7 | "Impressive!", "Excellent!", quad damage, rocket launcher |
-| **silent-hill** | 7 | Air raid siren, radio static, monster growl, fog horn |
-| **scooby-doo** | 6 | "Scooby-Dooby-Doo!", "Ruh-roh", "Zoinks!", mystery machine |
+| **mission-impossible** | 8 | Main theme, "Your mission...", theme sting |
+| **lion-king** | 8 | Hakuna Matata, King tag, finale |
+| **jungle-book** | 8 | Bare Necessities, intro tune, bonus level |
+| **beauty-and-the-beast** | 8 | Prologue, title screen, ending |
+| **streets-of-rage** | 7 | Go Straight, player select, level complete |
+| **silent-hill** | 7 | Air raid siren, radio static, monster growl |
+| **quake** | 7 | "Impressive!", "Excellent!", quad damage |
+| **metroid** | 7 | Brinstar, escape sequence, Samus fanfare |
+| **looney-tunes** | 7 | "That's all folks!", "What's up doc?", meep meep |
+| **lemmings** | 7 | Level themes, Galop Infernal, ending |
+| **final-fantasy** | 7 | Opening theme, airship, item received |
+| **earthworm-jim** | 7 | New Junk City, "Groovy!", ending |
+| **doom** | 7 | E1M1, chainsaw, Doomguy death scream |
+| **die-hard** | 7 | Nakatomi tower, title screen, game over |
+| **counter-strike** | 7 | "Terrorists Win", "Bomb planted", "Go go go" |
+| **batman** | 7 | "I'm Batman", Na na na Batman!, Joker laugh |
 | **street-fighter** | 6 | "Hadouken!", "Shoryuken!", "Perfect", "KO" |
-| **game-of-thrones** | 5 | Main theme, "Winter is coming", Dracarys, shame bell |
-| **harry-potter** | 5 | Hedwig's theme, "Expelliarmus!", "Always", sorting hat |
-| **lord-of-the-rings** | 5 | Fellowship theme, "You shall not pass!", Shire theme |
-| **matrix** | 5 | "I know kung fu", "There is no spoon", bullet time |
-| **metal-gear-solid** | 5 | Alert sound (❗), "Snake? SNAAAKE!", codec call |
-| **mission-impossible** | 5 | Main theme, "Your mission...", fuse burning |
+| **scooby-doo** | 6 | "Scooby-Dooby-Doo!", "Ruh-roh", "Zoinks!" |
+| **gta** | 6 | "Wasted", "Mission Passed", "Busted" |
+| **star-trek** | 5 | "Make it so", communicator chirp, red alert |
+| **sonic** | 5 | Ring collect, spin dash, extra life |
 | **pac-man** | 5 | Waka waka, game start, ghost eat, death |
-| **sonic** | 5 | Ring collect, spin dash, extra life, game over |
-| **star-trek** | 5 | "Make it so", communicator chirp, red alert, "Engage" |
-| **tmnt** | 5 | "Cowabunga!", turtle power theme, "Heroes in a half shell" |
-| **top-gun** | 5 | Danger Zone riff, "I feel the need for speed", tower flyby |
+| **metal-gear-solid** | 5 | Alert sound, "Snake? SNAAAKE!", codec call |
+| **matrix** | 5 | "I know kung fu", "There is no spoon", bullet time |
+| **lord-of-the-rings** | 5 | "You shall not pass!", Horn of Gondor, Shire |
+| **harry-potter** | 5 | Hedwig's theme, "Always", Voldemort laugh |
+| **game-of-thrones** | 5 | Main theme, "You know nothing", shame bell |
+| **duck-hunt** | 5 | Dog laugh, title BGM, game start |
+| **double-dragon** | 5 | Main title, victory, game over |
+| **darkwing-duck** | 5 | NES title, stage clear, boss music |
+| **contra** | 5 | Title theme, 1UP, death, explosion |
+| **cobra-command** | 5 | Mission completed, staff roll, briefing |
+| **battletoads** | 5 | Title, level complete, pause beat, game over |
 
 ## Switch Packs
 
@@ -121,7 +156,7 @@ Add `.mp3`, `.wav`, or `.ogg` files to each category folder. Then switch:
 
 ## Credits
 
-Sound files sourced from [PeonPing](https://github.com/PeonPing/peon-ping), [Myinstants](https://www.myinstants.com), and [red-alert-2-voice-for-compile](https://github.com/Blankwonder/red-alert-2-voice-for-compile). Game trademarks belong to their respective owners (Blizzard, EA/Westwood, Nintendo, DC Comics, Nickelodeon, Warner Bros, Paramount, HBO, Konami, Sega, Hanna-Barbera).
+Sound files sourced from [PeonPing](https://github.com/PeonPing/peon-ping), [Myinstants](https://www.myinstants.com), [Internet Archive NES-Music](https://archive.org/download/NES-Music/), and [red-alert-2-voice-for-compile](https://github.com/Blankwonder/red-alert-2-voice-for-compile). Game trademarks belong to their respective owners (Blizzard, EA/Westwood, Nintendo, Capcom, DC Comics, Nickelodeon, Warner Bros, Paramount, HBO, Konami, Sega, Hanna-Barbera, Square Enix, Rare, Team17, Disney).
 
 ---
 

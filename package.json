@@ -1,7 +1,7 @@
 {
   "name": "@citedy/game-sounds",
-  "version": "2.0.0",
-  "description": "225 game sound effects for Claude Code — 28 packs: Warcraft, StarCraft, Batman, Matrix, Harry Potter, Game of Thrones, LOTR, Star Trek & more!",
+  "version": "3.0.0",
+  "description": "552 game sound effects for Claude Code — 63 packs: Warcraft, StarCraft, Batman, Matrix, Harry Potter, DuckTales, Castlevania, Mega Man, Kirby, Indiana Jones & more!",
   "keywords": [
     "claude-code",
     "claude-code-plugin",
@@ -20,7 +20,16 @@
     "matrix",
     "game-of-thrones",
     "star-trek",
-    "lord-of-the-rings"
+    "lord-of-the-rings",
+    "ducktales",
+    "castlevania",
+    "mega-man",
+    "kirby",
+    "metroid",
+    "indiana-jones",
+    "final-fantasy",
+    "donkey-kong",
+    "prince-of-persia"
   ],
   "author": "Citedy <hello@citedy.com>",
   "license": "MIT",
