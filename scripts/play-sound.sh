@@ -69,11 +69,19 @@ fi
 echo "$SOUND" > "$LAST_PLAYED_FILE"
 
 # Play sound (background, non-blocking)
-if command -v afplay &>/dev/null; then
-  # macOS
+# Remote-to-local audio relay: POST audio file to HTTP relay on Mac via SSH tunnel
+RELAY_PORT="${GAME_SOUNDS_RELAY_PORT:-18923}"
+if curl -s --max-time 1 -o /dev/null -w '' "http://localhost:$RELAY_PORT" 2>/dev/null; then
+  curl -s -X POST \
+    -H "X-Ext: .${SOUND##*.}" \
+    -H "X-Vol: $VOLUME" \
+    --data-binary @"$SOUND" \
+    "http://localhost:$RELAY_PORT" &>/dev/null &
+elif command -v afplay &>/dev/null; then
+  # macOS (local)
   afplay -v "$VOLUME" "$SOUND" &
 elif command -v paplay &>/dev/null; then
-  # Linux (PulseAudio) — paplay doesn't support volume flag easily, use pw-play
+  # Linux (PulseAudio)
   paplay "$SOUND" &
 elif command -v pw-play &>/dev/null; then
   # Linux (PipeWire)

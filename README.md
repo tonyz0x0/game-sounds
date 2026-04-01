@@ -135,6 +135,103 @@ export PATH="$HOME/.claude/plugins/cache/citedy/game-sounds/1.1.2/scripts:$PATH"
 
 - **macOS**: `afplay` (built-in)
 - **Linux**: `paplay` (PulseAudio), `pw-play` (PipeWire), or `ffplay` (FFmpeg)
+- **Remote server → local Mac (SSH)**: HTTP audio relay over SSH reverse tunnel (see below)
+
+## Remote Server Setup (SSH)
+
+If Claude Code runs on a **remote headless Linux server** and you want sounds on your **local Mac**, use the included HTTP audio relay. The patched `play-sound.sh` automatically detects the relay and falls back to native players when unavailable.
+
+```
+Remote Server                SSH Reverse Tunnel         Local MacBook
+┌────────────────┐        ┌──────────────────┐       ┌────────────────┐
+│ play-sound.sh  │        │  Port 18923 on   │       │ audio-relay.py │
+│ curl POST .mp3 │───────>│  remote forwards │──────>│ → afplay       │
+│                │        │  to Mac          │       │ → speakers     │
+└────────────────┘        └──────────────────┘       └────────────────┘
+```
+
+### Local Mac setup
+
+**1. Save the relay script** (`scripts/audio-relay.py` from this repo) to your Mac, e.g. `~/audio-relay.py`.
+
+**2. Auto-start on login** — create a Launch Agent so the relay survives reboots:
+
+```bash
+cat > ~/Library/LaunchAgents/com.game-sounds.audio-relay.plist << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.game-sounds.audio-relay</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/YOUR_USERNAME/audio-relay.py</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/tmp/audio-relay.err</string>
+</dict>
+</plist>
+EOF
+
+# Replace YOUR_USERNAME above, then load it:
+launchctl load ~/Library/LaunchAgents/com.game-sounds.audio-relay.plist
+```
+
+The relay will now auto-start on login and restart if it crashes. No dependencies — just Python 3 and `afplay` (both built-in on macOS).
+
+<details>
+<summary>Manual run (without auto-start)</summary>
+
+```bash
+# Foreground:
+python3 ~/audio-relay.py
+
+# Background:
+nohup python3 ~/audio-relay.py > /dev/null 2>&1 &
+```
+
+</details>
+
+**3. Add SSH reverse tunnel** to `~/.ssh/config`:
+
+```
+Host your-remote-server
+  RemoteForward 18923 localhost:18923
+```
+
+Or manually: `ssh -R 18923:localhost:18923 user@remote-server`
+
+### Per-session checklist
+
+1. Audio relay running on Mac (automatic if Launch Agent is installed, verify with `curl -s http://localhost:18923`)
+2. SSH includes the reverse tunnel
+
+### Testing
+
+```bash
+# Health check (should print "ok")
+curl -s http://localhost:18923
+
+# Play a sound
+curl -s -X POST -H "X-Ext: .mp3" -H "X-Vol: 1.0" \
+  --data-binary @path/to/sound.mp3 http://localhost:18923
+
+# Test via plugin script
+bash ~/.claude/plugins/cache/citedy/game-sounds/*/scripts/play-sound.sh task-complete
+```
+
+### Custom relay port
+
+```bash
+export GAME_SOUNDS_RELAY_PORT=9999
+python3 ~/audio-relay.py --port 9999
+```
 
 ## Adding Custom Sound Packs
 

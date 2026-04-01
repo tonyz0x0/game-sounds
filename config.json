@@ -1,6 +1,6 @@
 {
-  "volume": 0.5,
-  "active_pack": "warcraft",
+  "volume": 1.0,
+  "active_pack": "my-warcraft",
   "enabled_events": {
     "session-start": true,
     "task-acknowledge": true,
